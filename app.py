@@ -2,6 +2,9 @@ import streamlit as st
 import os
 import subprocess
 from engine.shadow_engine import shadow_redact
+# Auto-compile Java files for the Cloud Server
+if not os.path.exists("vault/VaultManager.class"):
+    subprocess.run(["javac", "vault/Guardian.java", "vault/VaultManager.java", "vault/VaultUnlocker.java"])
 
 # 1. Page Setup
 st.set_page_config(page_title="ShadowVault Pro", page_icon="🛡️", layout="wide")
